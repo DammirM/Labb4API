@@ -1,3 +1,8 @@
+using Labb4API.Context;
+using Labb4API.Models;
+using Labb4API.Services;
+using Microsoft.EntityFrameworkCore;
+
 namespace Labb4API
 {
     public class Program
@@ -12,6 +17,16 @@ namespace Labb4API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IPersonrepository,PersonRepo>();
+            builder.Services.AddScoped<ILinkRepository, LinkRepo>();
+            builder.Services.AddScoped<IInterestrepository,InterestRepo>();
+
+
+            // EF Till SQL Connection
+            builder.Services.AddDbContext<ApiDbContext>(options => options
+            .UseSqlServer(builder.Configuration.GetConnectionString("Connection")));
+
 
             var app = builder.Build();
 
