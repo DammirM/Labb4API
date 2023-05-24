@@ -9,7 +9,7 @@ namespace Labb4API.Models
         public int ID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public ICollection<Link> Links { get; set; }
+        public ICollection<Link>? Links { get; set; }
 
     }
 }

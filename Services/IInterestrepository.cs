@@ -4,8 +4,8 @@ namespace Labb4API.Services
 {
     public interface IInterestrepository
     {
-        List<Interest> GetHobbiesOfPerson(int ID);
-        Link AddHobbieToPerson(Link link);
+        List<Interest> GetInterest(int ID);
+        Link AddInterest(Link link);
 
     }
 }

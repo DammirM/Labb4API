@@ -18,7 +18,7 @@ namespace Labb4API.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetPersonHobbieLinks(int id)
+        public IActionResult GetLink(int id)
         {
             var personHobbieLinks = _linkrepo.LinkPerson(id);
             if (personHobbieLinks == null)
@@ -30,7 +30,7 @@ namespace Labb4API.Controllers
 
 
         [HttpPost]
-        public IActionResult AddHobbieToPerson(Link link)
+        public IActionResult AddLink(Link link)
         {
             var result = _personrepo.GetSinglePerson(link.ID);
             if (result != null)

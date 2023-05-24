@@ -14,14 +14,14 @@ namespace Labb4API.Services
             _Apicontext = context;
         }
 
-        public Link AddHobbieToPerson(Link link)
+        public Link AddInterest(Link link)
         {
             _Apicontext.Links.Add(link);
             _Apicontext.SaveChanges();
             return link;
         }
 
-        public List<Interest> GetHobbiesOfPerson(int ID)
+        public List<Interest> GetInterest(int ID)
         {
             return _Apicontext.Links.Where(p => p.PersonId == ID).Select(h => h.Interest).ToList();
         }

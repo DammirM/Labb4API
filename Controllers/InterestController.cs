@@ -19,9 +19,9 @@ namespace Labb4API.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetPersonHobbies(int id)
+        public IActionResult GetInterestPerson(int id)
         {
-            var personHobbies = _interestRepository.GetHobbiesOfPerson(id);
+            var personHobbies = _interestRepository.GetInterest(id);
             if (personHobbies == null)
             {
                 return NotFound($"Person with id {id} not found");
@@ -31,12 +31,12 @@ namespace Labb4API.Controllers
 
 
         [HttpPost]
-        public IActionResult AddHobbieToPerson(Link link)
+        public IActionResult AddInterestPerson(Link link)
         {
-            var result = _personRepository.GetSinglePerson(link.ID);
+            var result = _interestRepository.AddInterest(link);
             if (result != null)
             {
-                _interestRepository.AddHobbieToPerson(link);
+                _interestRepository.AddInterest(link);
                 return Created(HttpContext.Request.Scheme +
                     "://" +
                     HttpContext.Request.Host +
