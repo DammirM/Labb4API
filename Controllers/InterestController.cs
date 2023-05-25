@@ -33,7 +33,7 @@ namespace Labb4API.Controllers
         [HttpPost]
         public IActionResult AddInterestPerson(Link link)
         {
-            var result = _interestRepository.AddInterest(link);
+            var result = _personRepository.GetSinglePerson(link.ID);
             if (result != null)
             {
                 _interestRepository.AddInterest(link);
